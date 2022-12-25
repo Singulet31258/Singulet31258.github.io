@@ -1,21 +1,13 @@
-//注：非重点代码压行，重点代码不压行
+//注：非重点代码压行，重点代码不压行，此代码可以AC洛谷P3809，但要学习DC3算法仍需仔细阅读该代码
 #include<bits/stdc++.h>
-//常量与变量声明（非重点）
-constexpr int maxn=1e6+5;int n,qaq[maxn],qwq[maxn],tat[maxn],orz[maxn],rk[maxn*3],sa[maxn*3];char s[maxn];
-//基数排序（非重点）
-void sort(const int*a,const int*b,int*c,const int&n,const int&m)noexcept{int i;memset(qaq,0,sizeof(int)*m);for(i=0;i<n;++i)++qaq[a[b[i]]];for(i=1;i<m;++i)qaq[i]+=qaq[i-1];for(i=n-1;~i;--i)c[--qaq[a[b[i]]]]=b[i];}
-//DC3算法需要比较连续3个字符是否完全一致，r为字符的rank数组，a和b为要比较的字符起始位置
-inline bool c0(const int*r,const int&a,const int&b)noexcept
-{
-  return r[a]==r[b]&&r[a+1]==r[b+1]&&r[a+2]==r[b+2];
-}
-//DC3算法最后一步所需的比较函数
-inline bool c12(const bool&u,const int*r,const int&a,const int&b)noexcept
-{
-  return r[a]<r[b]||(r[a]==r[b]&&(u?qwq[a+1]<qwq[b+1]:r[a+1]<r[b+1]||(r[a+1]==r[b+1]&&qwq[a+2]<qwq[b+2])));
-}
-//DC3算法核心函数，请配合DC3算法的有关资料进行阅读
-void dc3(int*rk,int*sa,const int&n,const int&m)noexcept
+constexpr int maxn=1e6+5;int n,qaq[maxn],qwq[maxn],tat[maxn],orz[maxn],rk[maxn*3],sa[maxn*3];char s[maxn];//常量与变量声明（非重点）
+void sort(const int*a,const int*b,int*c,const int&n,const int&m)noexcept//基数排序（非重点）
+{int i;memset(qaq,0,sizeof(int)*m);for(i=0;i<n;++i)++qaq[a[b[i]]];for(i=1;i<m;++i)qaq[i]+=qaq[i-1];for(i=n-1;~i;--i)c[--qaq[a[b[i]]]]=b[i];}
+inline bool c0(const int*r,const int&a,const int&b)noexcept//DC3算法需要比较连续3个字符是否完全一致，r为字符的rank数组，a和b为要比较的字符起始位置
+{return r[a]==r[b]&&r[a+1]==r[b+1]&&r[a+2]==r[b+2];}
+inline bool c12(const bool&u,const int*r,const int&a,const int&b)noexcept//DC3算法最后一步所需的比较函数
+{return r[a]<r[b]||(r[a]==r[b]&&(u?qwq[a+1]<qwq[b+1]:r[a+1]<r[b+1]||(r[a+1]==r[b+1]&&qwq[a+2]<qwq[b+2])));}
+void dc3(int*rk,int*sa,const int&n,const int&m)noexcept//DC3算法核心函数，请配合DC3算法的有关资料进行阅读
 {
   int i,j=0,k,*rkn=rk+n,*san=sa+n,t0,t1,t12;rk[n]=rk[n+1]=0;
   //第一步
