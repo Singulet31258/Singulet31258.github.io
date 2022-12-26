@@ -1,3 +1,4 @@
+/*本段代码请配合3803.pdf阅读！*/
 #include<bits/stdc++.h>
 using namespace std;
 using foo=complex<double>;
