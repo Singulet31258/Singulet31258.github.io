@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+// Quick IO but resembles iostream
 struct qio{
     constexpr static int ibs=1<<21,obs=1<<21;
     FILE*ifp,*ofp;
@@ -140,7 +141,7 @@ int main(){
         qwq=(long long)(g[i].imag()+.5);
         tat=(long long)(h[i].real()+.5);
         orz=(long long)(h[i].imag()+.5);
-        io<<(int)((orz+(qwq+tat+((__int128)qaq<<T)<<T))%p)<<' ';
+        io<<(orz+((qwq+tat+(qaq<<T))%p<<T))%p<<' ';
     }
     return 0;
 }
