@@ -1,3 +1,4 @@
+// About 200ms for Luogu P4245 when n=m=10^5
 #include<bits/stdc++.h>
 // Quick IO but resembles iostream
 struct qio{
