@@ -24,7 +24,10 @@ $$
 于是有：
 
 $$
-A(x_k)=\sum\limits_{i=0}^{n}{y_ih(x_k,x_i)}=y_k(0\le k\le n)\\
+A(x_k)=\sum\limits_{i=0}^{n}{y_ih(x_k,x_i)}=y_k(0\le k\le n)
+$$
+
+$$
 A(x)=\sum\limits_{i=0}^{n}{y_ih(x,x_i)}=\sum\limits_{i=0}^{n}{y_i\frac{\prod\limits_{j\not ={i}}{(x-x_j)}}{\prod\limits_{j\not ={i}}{(x_i-x_j)}}}=\sum\limits_{i=0}^{n}{y_i\prod\limits_{j\not ={i}}\frac{x-x_j}{x_i-x_j}}
 $$
 
@@ -41,8 +44,14 @@ $$
 我们从式子入手，做一些转化：
 
 $$
-B(m)=\sum\limits_{i=0}^{n}{B(i)\prod\limits_{j\not ={i}}\frac{m-j}{i-j}}\\
-C_k=\prod\limits_{i=0}^k(m-i),D_k=\prod\limits_{i=k}^n(m-i)\\
+B(m)=\sum\limits_{i=0}^{n}{B(i)\prod\limits_{j\not ={i}}\frac{m-j}{i-j}}
+$$
+
+$$
+C_k=\prod\limits_{i=0}^k(m-i),D_k=\prod\limits_{i=k}^n(m-i)
+$$
+
+$$
 B(m)=\sum\limits_{i=0}^{n}{B(i)\frac{C_{i-1}D_{i+1}}{(-1)^{n-i}i!(n-i)!}}
 $$
 
