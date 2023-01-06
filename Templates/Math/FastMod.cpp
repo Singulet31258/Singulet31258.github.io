@@ -9,7 +9,6 @@ using u16=unsigned short;
 using u32=unsigned long;
 using u64=unsigned long long;
 using u128=__uint128_t;
-constexpr u128 A=1,B=A<<64;
 /**
  * 内部实现为Barrett Reduction的快速取模结构体
  * 在对固定模数p取模1e9次的情况下：（ISO C++14 O2 GCC 9.3.0）
@@ -25,12 +24,12 @@ constexpr u128 A=1,B=A<<64;
 struct fastmod{
     const int a;
     const u64 b,p;
-    constexpr fastmod(const u64&p)noexcept:a(64-__builtin_clzll(p-1)),b(((A<<a)|(B<<a))/p),p(p){}
+    constexpr fastmod(const u64&p)noexcept:a(127-__builtin_clzll(p)),b((u128(1)<<a)/p),p(p){}
     constexpr friend u64 operator/(const u64&n,const fastmod&m)noexcept{
-        return n+u64(u128(n)*m.b>>64)>>m.a;
+        return u128(n)*b>>a;
     }
     constexpr friend u64 operator%(const u64&n,const fastmod&m)noexcept{
-        return n-(n+u64(u128(n)*m.b>>64)>>m.a)*m.p;
+        return n-u128(n)*b>>a*m.p;
     }
 };
 constexpr fastmod M(1e9+7);
