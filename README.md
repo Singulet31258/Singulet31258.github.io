@@ -4,3 +4,8 @@ Singulet31258写的各种可公开的OI模板、博客、游记等均存档在�
 Templates：用于存放各种模板
 
 Luogu：用于存放洛谷经典题目的AC代码
+
+LOJ：用于存放LOJ经典题目的AC代码
+
+UOJ：用于存放UOJ经典题目的AC代码
+
