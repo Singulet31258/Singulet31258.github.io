@@ -9,40 +9,79 @@ $$
 $h$ 是 $f,g$ 的狄利克雷卷积 $DC$ 。
 
 $$
-f\ast g=g\ast f\\
-(f\ast g)\ast h=f\ast(g\ast h)\\
-(f+g)\ast h=f\ast h+g\ast h\\
+f\ast g=g\ast f
+$$
+
+$$
+(f\ast g)\ast h=f\ast(g\ast h)
+$$
+
+$$
+(f+g)\ast h=f\ast h+g\ast h
+$$
+
+$$
 f\ast g\iff f\ast h=g\ast h,h(1)\ne 0
 $$
 
 $MF=\text{Multiplicative Function}$ ，积性函数。
 
 $$
-f^{a+b}=f^a\ast f^b,f^0=\varepsilon\\
+f^{a+b}=f^a\ast f^b,f^0=\varepsilon
+$$
+
+$$
 \varepsilon(n)=\begin{cases}
     1,n=1\\
     0,n\ne 1
-\end{cases}\\
-f=MF,g=MF\Rightarrow f\ast g=MF\\
+\end{cases}
+$$
+
+$$
+f=MF,g=MF\Rightarrow f\ast g=MF
+$$
+
+$$
 f=MF\iff f^{-1}=MF
 $$
 
 记 $DGF(f)$ 表示数论函数 $f$ 的 $DGF$ ，默认以 $x$ 为自变量， $\mathbb{P}$ 表示全体质数的集合。
 
 $$
-DGF(f)DGF(g)=DGF(f\ast g)\\
-DGF(f)=\sum_{i=1}^\infty\frac{f(i)}{i^x}\\
-f=MF\iff DGF(f)=\prod_{p\in\mathbb{P}}\sum_{i=0}^\infty\frac{f(p^i)}{p^{ix}}\\
+DGF(f)DGF(g)=DGF(f\ast g)
+$$
+
+$$
+DGF(f)=\sum_{i=1}^\infty\frac{f(i)}{i^x}
+$$
+
+$$
+f=MF\iff DGF(f)=\prod_{p\in\mathbb{P}}\sum_{i=0}^\infty\frac{f(p^i)}{p^{ix}}
 $$
 
 记 $\varphi$ 表示欧拉函数， $\zeta$ 表示黎曼函数， $\mu$ 表示莫比乌斯函数。
 
 $$
-I_k(n)=n^k,\sigma_k(n)=\sum_{d\mid n}d^k=(I_k\ast 1)(n)\\
-DGF(I_k)=\zeta(x-k)\\
-DGF(\varphi)=\frac{\zeta(x-1)}{\zeta(x)}\\
-DGF(\mu)=\frac{1}{\zeta(x)}\\
-DGF(\sigma_k)=\zeta(x-k)\zeta(x)\\
+I_k(n)=n^k,\sigma_k(n)=\sum_{d\mid n}d^k=(I_k\ast 1)(n)
+$$
+
+$$
+DGF(I_k)=\zeta(x-k)
+$$
+
+$$
+DGF(\varphi)=\frac{\zeta(x-1)}{\zeta(x)}
+$$
+
+$$
+DGF(\mu)=\frac{1}{\zeta(x)}
+$$
+
+$$
+DGF(\sigma_k)=\zeta(x-k)\zeta(x)
+$$
+
+$$
 \varphi(n)=(I_1\ast\mu)(n)=\sum_{d\mid n}d\mu(\frac{n}{d})
 $$
 
@@ -59,7 +98,10 @@ $$
 $MI$ 的其他形式（设 $t$ 是一个完全积性函数且 $t(1)=1$ ）：
 
 $$
-f(n)=\sum_{n\mid d}g(d)\iff g(n)=\sum_{n\mid d}f(d)\mu(\frac{d}{n})\\
+f(n)=\sum_{n\mid d}g(d)\iff g(n)=\sum_{n\mid d}f(d)\mu(\frac{d}{n})
+$$
+
+$$
 f(n)=\sum_{i=1}^nt(i)g(\lfloor\frac{n}{i}\rfloor)\iff g(n)=\sum_{i=1}^n\mu(i)t(i)f(\lfloor\frac{n}{i}\rfloor)
 $$
 
@@ -68,7 +110,10 @@ $$
 给定数论函数 $f$ ，求 $s(f,n)=\sum_{i=1}^nf(i)$ 。
 
 $$
-s(f\ast g,n)=\sum_{i=1}^ng(i)s(f,\lfloor\frac{n}{i}\rfloor)\\
+s(f\ast g,n)=\sum_{i=1}^ng(i)s(f,\lfloor\frac{n}{i}\rfloor)
+$$
+
+$$
 g(1)s(f,n)=s(f\ast g,n)-\sum_{i=2}^ng(i)s(f,\lfloor\frac{n}{i}\rfloor)
 $$
 
@@ -155,8 +200,14 @@ $$
     &=\sum_{j=1}^m\varepsilon(\gcd(j,k))\sum_{d\mid j}^n\mu(d)\frac{n}{d}\\
     &=\sum_{d=1}^n\mu(d)\frac{n}{d}\varepsilon(\gcd(d,k))\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}\varepsilon(\gcd(j,k))\\
     &=\sum_{d=1}^n\mu(d)\frac{n}{d}\varepsilon(\gcd(d,k))g(\lfloor\frac{m}{d}\rfloor,k)
-\end{aligned}\\
-g(n,k)=\sum_{i=1}^n\varepsilon(\gcd(i,k))=\lfloor\frac{n}{k}\rfloor\varphi(k)+g(n\bmod k,k)\\
+\end{aligned}
+$$
+
+$$
+g(n,k)=\sum_{i=1}^n\varepsilon(\gcd(i,k))=\lfloor\frac{n}{k}\rfloor\varphi(k)+g(n\bmod k,k)
+$$
+
+$$
 \begin{aligned}
     h(n,k)
     &=\sum_{i=1}^n\mu(i)\varepsilon(\gcd(i,k))\\
@@ -189,11 +240,15 @@ $$
     &=\sum_{d=1}^nd^3\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}i\sum_{j=1}^{\lfloor\frac{n}{d}\rfloor}j\sum_{k\mid i,k\mid j}\mu(k)\\
     &=\sum_{d=1}^nd^3\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}i\sum_{j\mid i}j\mu(j)A_1(\lfloor\frac{n}{dj}\rfloor)\\
     &=\sum_{d=1}^nd^3B(\lfloor\frac{n}{d}\rfloor)
-\end{aligned}\\
-A_k(n)=\sum_{i=1}^ni^k\\
-B(n)=\sum_{i=1}^{n}\mu(i)i^2A_3(\lfloor\frac{n}{i}\rfloor)\\
-A_3(n)=\sum_{i=1}^{n}i^2B(\lfloor\frac{n}{i}\rfloor)\\
-B(n)=A_3(n)-\sum_{i=2}^{n}i^2B(\lfloor\frac{n}{i}\rfloor)
+\end{aligned}
+$$
+
+$$
+A_k(n)=\sum_{i=1}^ni^k,B(n)=\sum_{i=1}^{n}\mu(i)i^2A_3(\lfloor\frac{n}{i}\rfloor)
+$$
+
+$$
+A_3(n)=\sum_{i=1}^{n}i^2B(\lfloor\frac{n}{i}\rfloor),B(n)=A_3(n)-\sum_{i=2}^{n}i^2B(\lfloor\frac{n}{i}\rfloor)
 $$
 
 容易发现，上述式子中的最后一个等式与杜教筛的标准形式非常相似。实际上， $A_k$ 就是 $I_k$ 的前缀和，因此若把该式看作杜教筛的标准形式，那么这里的 $f\ast g=I_3,g=I_2$。那么 $f$ 是什么呢？如果你有仔细阅读本篇 $\text{PDF}$ 的话，你会发现，这里的 $f$ 其实就是 $\beta.$ 所提到的那个数论函数 $f$ ！因此， $B(n)=\sum_{i=1}^ni^2\varphi(i)$ ，可以用杜教筛在 $O(n^{\frac{2}{3}})$ 的时间内求出。
