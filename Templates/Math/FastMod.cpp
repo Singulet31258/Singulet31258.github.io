@@ -29,7 +29,7 @@ struct fastmod{
         return u128(n)*b>>a;
     }
     constexpr friend u64 operator%(const u64&n,const fastmod&m)noexcept{
-        return n-u128(n)*b>>a*m.p;
+        return n-(u128(n)*b>>a)*m.p;
     }
 };
 constexpr fastmod M(1e9+7);
