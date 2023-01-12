@@ -259,6 +259,31 @@ $A_3$ 关于 $B$ 的表达式是通过 $MI$ 得到的，这里完美体现了 $M
 
 总时间复杂度为 $O(n^{\frac{2}{3}})$ ，注意到本题的模数 $p$ 在输入以后就不会再变了，故我们可以模仿编译器用 $BR$ 等技术优化取模操作，可显著降低本题常数。
 
+>本题式子的另一种推导方法（无需使用 $MI$ ）：
+>
+>$$
+>\begin{aligned}
+>   f(n)
+>   &=\sum_{i=1}^n\sum_{j=1}^nij\gcd(i,j)\\
+>   &=\sum_{d=1}^n\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{n}{d}\rfloor}ijd^3[i\perp j]\\
+>   &=\sum_{d=1}^nd^3\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}i\sum_{j=1}^{\lfloor\frac{n}{d}\rfloor}j[i\perp j]\\
+>   &=\sum_{d=1}^nd^3(2\sum_{i=2}^{\lfloor\frac{n}{d}\rfloor}i\sum_{j=1}^{i-1}j[i\perp j]+1)\\
+>   &=\sum_{d=1}^nd^3(2\sum_{i=2}^{\lfloor\frac{n}{d}\rfloor}i\frac{i\varphi(i)}{2}+1)\\
+>   &=\sum_{d=1}^nd^3\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}i^2\varphi(i)\\
+>   &=\sum_{d=1}^nd^3B(\lfloor\frac{n}{d}\rfloor)
+>\end{aligned}
+>$$
+
+这里就直接推出了 $B(n)$ 是 $n^2\varphi(n)$ 的前缀和，方便又快捷。
+
+推导依据：显然，交换 $i,j$ 的值不会影响 $ij[i\perp j]$ 的值，因此只需求 $j < i$ 与 $j=i$ 的部分。而 $j > i$ 的部分与 $j < i$ 的部分显然相等。
+
+$j < i$ 的部分相当于求小于 $i$ 的所有与 $i$ 互质的正整数的和，容易证明，这个和在 $i>1$ 时为 $\frac{i\varphi(i)}{2}$ ，因为与 $i$ 互质的数 $j,i-j$ 一定成对出现，平均值为 $\frac{i}{2}$ ，而一共有 $\varphi(i)$ 个这样的数对。而当 $i=1$ 时，这一部分为 $0$ ，故可以忽略掉。
+
+$j=i$ 的部分有 $[i\perp i]$ ，它仅当 $i=1$ 时取 $1$ ，否则取 $0$ ，故这部分的和必为 $1$ 。
+
+而 $i^2\varphi(i)$ 在 $i=1$ 时刚好取 $1$ ，所以在把 $2$ 提到求和式中消去分母 $2$ 后， $1$ 可以消掉，然后求和式由从 $2$ 开始转为从 $1$ 开始，这样就得到了一个前缀和的形式。
+
 ## 习题
 
 [动态几何问题](https://loj.ac/p/509)
