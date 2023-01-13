@@ -29,7 +29,6 @@ FastIO io;
 #endif
 int main(){
   int a,b;
-  io>>a>>b;
-  io<<a+b;
+  io>>a>>b<<a+b;
   return 0;
 }
