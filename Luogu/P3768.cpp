@@ -61,7 +61,7 @@ int main()
             r=u/(u/l);
             (t+=(foo(r%m)+p-foo((l-1)%m))*baz(u/r))%=m;
         }
-        mp[u]=(bar(u%m)-t+p)%m;
+        mp[u]=(bar(u%m)+p-t)%m;
     }
     for(l=1;l<=n;l=r+1){
         r=n/(n/l);
