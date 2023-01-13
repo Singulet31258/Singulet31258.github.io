@@ -2,8 +2,8 @@
 using namespace std;
 using _=unsigned long long;
 using u128=__uint128_t;
-constexpr unsigned A=8e6;
-unsigned p,i,*j,a[A],b[A],*c=b,phi[A];
+constexpr unsigned A=81e5;
+unsigned p,i,k,*j,a[A],b[A],*c=b,phi[A];
 _ n,d[A],t,u,l,r,ans;
 const struct fastmod
 {
@@ -35,15 +35,15 @@ inline _ bar(const _&n)noexcept{
     return n*n%m*(n+1)%m*(n+1)%m*quarter%m;
 }
 inline _ baz(const _&n)noexcept{
-    return n<A?d[n]:mp[n];
+    return n<k?d[n]:mp[n];
 }
 int main()
 {
     clock_t st=clock();
-    d[1]=1;
-    for(i=2;i<A;++i){
+    d[1]=1;k=cbrt(double(n)*n*5.201314);
+    for(i=2;i<k;++i){
         if(!a[i])a[i]=*c++=i,phi[i]=i-1;
-        for(j=b,u=i**j;j!=c&&u<A;u=i**++j){
+        for(j=b,u=i**j;j!=c&&u<k;u=i**++j){
             a[u]=*j;
             if(*j==a[i]){
                 phi[u]=phi[i]**j;
@@ -54,7 +54,7 @@ int main()
         }
         d[i]=(d[i-1]+_(i)*i%m*phi[i])%m;
     }
-    for(i=1;n/i>=A;++i);
+    for(i=1;n/i>=k;++i);
     while(--i){
         u=n/i;t=0;
         for(l=2;l<=u;l=r+1){
