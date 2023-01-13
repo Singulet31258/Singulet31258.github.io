@@ -10,7 +10,7 @@ struct FastIO{
   #else
   #define fin cin
   #define fout cout
-  FastIO()noexcept:ibp(ib-1),obp(ob){fin.read(ib,IBS);}
+  FastIO()noexcept:ibp(ib-1),obp(ob){ios::sync_with_stdio(false);fin.tie(nullptr);fout.tie(nullptr);fin.read(ib,IBS);}
   #endif
   ~FastIO()noexcept{fout.write(ob,obp-ob);fin.close();fout.close();}
   template<typename T>FastIO&operator>>(T&x)noexcept{while(!isdigit(*++ibp));x=*ibp&0xf;while(isdigit(*++ibp))x=(x+(x<<2)<<1)+(*ibp&0xf);return*this;}
